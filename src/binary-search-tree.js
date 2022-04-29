@@ -14,8 +14,11 @@ class BinarySearchTree {
     return this.head;
   }
 
-  add(/*data*/) {
-
+  add(data) {
+    let node = new Node(data)
+    if(this.head === null){
+      this.head = node
+    }
   }
 
   has(/* data */) {
