@@ -38,24 +38,24 @@ class BinarySearchTree {
     };
  };
 
-  has(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  has(data) {
+    return this.hasData(this.head, data);
+  }
+  hasData(node,data){
+    if(node.data === data){
+      return true
+    }else if(node.data > data && node.left != null){
+       return this.hasData(node.left, data)
+    }else if(node.data < data && node.right != null){
+      return this.hasData(node.right, data)
+    }else{
+      return false
+    }
   }
 
-  find(data) {
-    return this.search(this.head, data);
-  }
-   search(node, data){
-    if(node === null){
-      return null
-    }else if(node.data > data){
-      return this.search(node.left, data);
-    }else if(node.data < data){
-      return this.search(node.right, data);
-    }else{
-      return node;
-    }
+  find(/* data */) {
+    throw new NotImplementedError('Not implemented');
+    // remove line with error and write your code here
   }
 
   remove(/* data */) {
@@ -72,6 +72,7 @@ class BinarySearchTree {
     throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
   }
+
 }
 
 module.exports = {
