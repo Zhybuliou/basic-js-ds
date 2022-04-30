@@ -53,9 +53,19 @@ class BinarySearchTree {
     }
   }
 
-  find(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  find(data) {
+   return this.findNode(this.head, data);
+  }
+  findNode(node, data){
+   if(node === null){
+     return null
+   }else if(data < node.data){
+     return this.findNode(node.left, data)
+   }else if(data > node.data){
+     return this.findNode(node.right, data)
+   }else{
+     return node
+   }
   }
 
   remove(/* data */) {
@@ -64,13 +74,25 @@ class BinarySearchTree {
   }
 
   min() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    return this.findMin(this.head);
+  }
+  findMin(node){
+    if(node.left === null){
+      return node.data
+    }else{
+      return this.findMin(node.left);
+    }
   }
 
   max() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    return this.findMax(this.head)
+  }
+  findMax(node){
+    if(node.right === null){
+      return node.data
+    }else{
+      return this.findMin(node.right);
+    }
   }
 
 }
